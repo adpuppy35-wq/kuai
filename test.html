@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест — kuai</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <app-header></app-header>
+
+        <div class="content-wrapper-articles">
+            <main class="main">
+
+                <!-- ОБЛОЖКА -->
+                <section class="lesson-hero">
+                    <div class="lesson-image">
+                        <img src="imgs/test.jpg" alt="тест">
+                    </div>
+                    <div class="lesson-head">
+                        <h1 class="lesson-title">тест для самопроверки</h1>
+                    </div>
+                </section>
+
+                <!-- ВОПРОСЫ -->
+                <section class="test-section">
+
+                    <div v-for="(q, qi) in questions" :key="q.id" class="test-item">
+
+                        <div class="test-question">
+                            <span class="test-num">{{ qi + 1 }}.</span>
+                            <span v-html="q.question"></span>
+                        </div>
+
+                        <div class="test-options">
+                            <button v-for="(opt, oi) in q.options" :key="oi" type="button" class="test-option"
+                                :class="optionClass(q, oi)" :disabled="q.answered" @click="checkAnswer(q, oi)">
+                                <span class="option-letter">{{ letters[oi] }}</span>
+                                <span v-html="opt"></span>
+                            </button>
+                        </div>
+
+                        <div v-if="q.answered" class="test-feedback"
+                            :class="q.isCorrect ? 'feedback-ok' : 'feedback-bad'">
+                            <template v-if="q.isCorrect">
+                                ✓ верно!
+                            </template>
+                            <template v-else>
+                                ✗ верный ответ — <b v-html="q.options[q.correct]"></b>.
+                                вернитесь к разделу «{{ q.section }}»
+                            </template>
+                        </div>
+
+                    </div>
+
+                    <div class="test-actions">
+                        <button type="button" class="download-btn" @click="resetTest">
+                            пройти заново
+                        </button>
+                    </div>
+
+                </section>
+
+            </main>
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+
+    <script src="./js/components/app-header.js"></script>
+    <script src="./js/components/app-footer.js"></script>
+    <script src="./js/test.js"></script>
+</body>
+
+</html>
