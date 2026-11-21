@@ -664,3 +664,132 @@ body {
         color: #000 !important;
     }
 }
+
+/* ===== ТЕСТ ===== */
+
+.test-section {
+    padding: 20px 0 60px;
+}
+
+.test-item {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.test-item:last-of-type {
+    border-bottom: none;
+}
+
+.test-question {
+    font-size: 1.1rem;
+    color: #020205;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.test-num {
+    color: #c71217;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.test-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.test-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #020205;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.test-option:hover:not(:disabled) {
+    border-color: #c71217;
+}
+
+.test-option:disabled {
+    cursor: default;
+}
+
+.option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    color: #020205;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.option-correct {
+    border-color: #2e9e4f;
+    background: #eef9f1;
+}
+
+.option-correct .option-letter {
+    background: #2e9e4f;
+    color: #fff;
+}
+
+.option-wrong {
+    border-color: #c71217;
+    background: #fdeeee;
+}
+
+.option-wrong .option-letter {
+    background: #c71217;
+    color: #fff;
+}
+
+.test-feedback {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+}
+
+.feedback-ok {
+    background: #eef9f1;
+    color: #2e9e4f;
+    border-left: 4px solid #2e9e4f;
+}
+
+.feedback-bad {
+    background: #fdeeee;
+    color: #c71217;
+    border-left: 4px solid #c71217;
+}
+
+.test-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
